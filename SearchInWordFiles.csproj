@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GererExceptions.cs" />
-    <Compile Include="GestionReadWriteConsole.cs" />
+    <Compile Include="ReadWriteConsoleManagement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

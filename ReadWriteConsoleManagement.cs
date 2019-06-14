@@ -1,4 +1,4 @@
-﻿// <copyright file="GestionReadWriteConsole.cs" company="Tortillas-Inc">
+﻿// <copyright file="ReadWriteConsoleManagement.cs" company="Tortillas-Inc">
 // Copy me, no rights reserved.
 // </copyright>
 
@@ -9,16 +9,16 @@ namespace SearchInWordFiles
     using System.Linq;
 
     /// <summary>
-    /// Classe qui propose des méthodes de gestion de lecture / écriture dans la console, pour faciliter l'interaction avec l'utilisateur.
+    /// Class containing the methods handling reading / writing into console, making it easier to interact with the user.
     /// </summary>
-    public static class GestionReadWriteConsole
+    public static class ReadWriteConsoleManagement
     {
         /// <summary>
-        /// Demande à l'utilisateur de saisir du texte. Vérifie que le texte rentré est correct.
+        /// Ask the user to input text. Check is the text is correct. Check if the text is null or empty, or white spaces.
         /// </summary>
-        /// <param name="startMessage">Message de départ, indiquant à l'utilisateur ce qu'il faut rentrer comme paramètre.</param>
-        /// <param name="errorMessage">Message d'erreur si l’utilisateur rentre une valeur inexacte dans la console.</param>
-        /// <returns>Retourne le texte saisi par l'utilisateur après l'avoir vérifié.</returns>
+        /// <param name="startMessage">Start message, telling the user what to enter as a parameter.</param>
+        /// <param name="errorMessage">Error message if the user enter a wrong value into the console.</param>
+        /// <returns>Text entered by the user. Has been checked.</returns>
         public static string GetSaisieUtilisateur(string startMessage, string errorMessage)
         {
             string searchedWord = string.Empty;
@@ -40,12 +40,12 @@ namespace SearchInWordFiles
         }
 
         /// <summary>
-        /// Demande à l'utilisateur de saisir du texte. Vérifie que le texte rentré est correct. Vérifie que le texte rentré correspond à une liste de valeurs prédéfinies.
+        /// Ask the user to input text. Check is the text is correct. Check that the entered text matches a list of predefined values.
         /// </summary>
-        /// <param name="startMessage">Message de départ, indiquant à l'utilisateur ce qu'il faut rentrer comme paramètre.</param>
-        /// <param name="errorMessage">Message d'erreur si l’utilisateur rentre une valeur inexacte dans la console.</param>
-        /// <param name="acceptedValues">Liste des valeurs acceptées dans la saisie de l'utilisateur.</param>
-        /// <returns>Retourne le texte saisi par l'utilisateur après l'avoir vérifié.</returns>
+        /// <param name="startMessage">Start message, telling the user what to enter as a parameter.</param>
+        /// <param name="errorMessage">Error message if the user enter a wrong value into the console.</param>
+        /// <param name="acceptedValues">List of accepted values in the user input.</param>
+        /// <returns>Text entered by the user. Has been checked.</returns>
         public static string GetSaisieUtilisateur(string startMessage, string errorMessage, List<string> acceptedValues)
         {
             if (!acceptedValues.Any())

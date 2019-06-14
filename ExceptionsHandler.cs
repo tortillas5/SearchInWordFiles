@@ -1,4 +1,4 @@
-﻿// <copyright file="GererExceptions.cs" company="Tortillas-Inc">
+﻿// <copyright file="ExceptionsHandler.cs" company="Tortillas-Inc">
 // Copy me, no rights reserved.
 // </copyright>
 
@@ -6,13 +6,16 @@ namespace SearchInWordFiles
 {
     using System;
 
-    public class GererExceptions
+    /// <summary>
+    /// Class used to manage exceptions.
+    /// </summary>
+    public class ExceptionsHandler
     {
         /// <summary>
-        /// Concatène les message d'une exception et de ses potentiel sous exceptions.
+        /// Regroup every exception messages of an exception (Exception and inner exception).
         /// </summary>
-        /// <param name="exception">Exception dont on veut concaténer les messages.</param>
-        /// <returns>Message de toutes les exceptions, concaténés.</returns>
+        /// <param name="exception">Exception whose messages are going to be grouped.</param>
+        /// <returns>String with grouped messages.</returns>
         public static string ConcatException(Exception exception)
         {
             string message = string.Empty;

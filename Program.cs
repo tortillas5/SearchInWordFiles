@@ -11,25 +11,25 @@ namespace SearchInWordFiles
     using Aspose.Words;
 
     /// <summary>
-    /// Classe contenant les principales méthodes utilisée pour chercher parmi des fichiers word.
+    /// Class containing the main methods used to search among word files.
     /// </summary>
     internal class Program
     {
         /// <summary>
-        /// Cherche parmi tous les fichiers word (doc / docx) du dossier directoryInfo, pour voir si une région contient le mot à trouver.
-        /// Cherche aussi parmi les sous dossiers du dossier en cours.
+        /// Search all the word files (.doc / .docx) in the directoryInfo folder to see if a region contains the word to find.
+        /// Also search among the subfolders of the current file.
         /// </summary>
-        /// <param name="directoryInfo">Dossier dans lequel on va chercher sur chaque fichier.</param>
-        /// <param name="searchedWord">Mot à trouver.</param>
+        /// <param name="directoryInfo">Folder in which we will search on each file .doc / .docx.</param>
+        /// <param name="searchedWord">Word to find.</param>
         public static void RecursiveSearchRegionInWordFiles(DirectoryInfo directoryInfo, string searchedWord)
         {
-            // Option de chargement d'un document
+            // Load option of a document.
             LoadOptions loadOptions = new LoadOptions
             {
                 LoadFormat = LoadFormat.Doc
             };
 
-            // Pour les fichiers du dossier.
+            // For the files of the folder.
             foreach (FileInfo fileInfo in directoryInfo.GetFiles())
             {
                 if (fileInfo.Extension == ".doc" || fileInfo.Extension == ".docx")
@@ -51,7 +51,7 @@ namespace SearchInWordFiles
                             Console.WriteLine("La région " + searchedWord + " a été trouvée dans le fichier " + fileInfo.Name + ".");
                             Console.WriteLine("Voulez vous continuer la recherche (Y), ou l'arrêter ? (N)");
 
-                            string response = GestionReadWriteConsole.GetSaisieUtilisateur("Y / N ?", "Veuillez rentrer Y (Yes) / N (No).", new List<string>() { "Y", "N" });
+                            string response = ReadWriteConsoleManagement.GetSaisieUtilisateur("Y / N ?", "Veuillez rentrer Y (Yes) / N (No).", new List<string>() { "Y", "N" });
 
                             if (response == "N")
                             {
@@ -66,7 +66,7 @@ namespace SearchInWordFiles
                 }
             }
 
-            // Pour les sous dossiers du dossier.
+            // For the subfolders.
             foreach (DirectoryInfo di in directoryInfo.GetDirectories())
             {
                 Console.WriteLine("Recherche dans le dossier " + di.FullName);
@@ -76,20 +76,20 @@ namespace SearchInWordFiles
         }
 
         /// <summary>
-        /// Cherche parmi tous les fichiers word (doc / docx) du dossier directoryInfo, pour voir si une région contient le mot partiel à trouver.
-        /// Cherche aussi parmi les sous dossiers du dossier en cours.
+        /// Search all the word files (.doc / .docx) in the directoryInfo folder to see if a region contains the partial word to find.
+        /// Also search among the subfolders of the current file.
         /// </summary>
-        /// <param name="directoryInfo">Dossier dans lequel on va chercher sur chaque fichier.</param>
-        /// <param name="searchedPartialWord">Mot partiel à trouver.</param>
+        /// <param name="directoryInfo">Folder in which we will search on each file .doc / .docx.</param>
+        /// <param name="searchedPartialWord">Partial word to find.</param>
         public static void RecursiveSearchRegionInWordFilesWithPartialWord(DirectoryInfo directoryInfo, string searchedPartialWord)
         {
-            // Option de chargement d'un document
+            // Load option of a document.
             LoadOptions loadOptions = new LoadOptions
             {
                 LoadFormat = LoadFormat.Doc
             };
 
-            // Pour les fichiers du dossier.
+            // For the files of the folder.
             foreach (FileInfo fileInfo in directoryInfo.GetFiles())
             {
                 if (fileInfo.Extension == ".doc" || fileInfo.Extension == ".docx")
@@ -111,7 +111,7 @@ namespace SearchInWordFiles
                             Console.WriteLine("Une région contenant le mot " + searchedPartialWord + " a été trouvée dans le fichier " + fileInfo.Name + ".");
                             Console.WriteLine("Voulez vous continuer la recherche (Y), ou l'arrêter ? (N)");
 
-                            string response = GestionReadWriteConsole.GetSaisieUtilisateur("Y / N ?", "Veuillez rentrer Y (Yes) / N (No).", new List<string>() { "Y", "N" });
+                            string response = ReadWriteConsoleManagement.GetSaisieUtilisateur("Y / N ?", "Veuillez rentrer Y (Yes) / N (No).", new List<string>() { "Y", "N" });
 
                             if (response == "N")
                             {
@@ -126,7 +126,7 @@ namespace SearchInWordFiles
                 }
             }
 
-            // Pour les sous dossiers du dossier.
+            // For the subfolders.
             foreach (DirectoryInfo di in directoryInfo.GetDirectories())
             {
                 Console.WriteLine("Recherche dans le dossier " + di.FullName);
@@ -136,20 +136,20 @@ namespace SearchInWordFiles
         }
 
         /// <summary>
-        /// Cherche parmi tous les fichiers word (doc / docx) du dossier directoryInfo, pour voir si l'un d'entre eux contient le mot / la phrase à trouver.
-        /// Cherche aussi parmi les sous dossiers du dossier en cours.
+        /// Search all the word files (.doc / .docx) in the directoryInfo folder to see if any contains the word / phrase to find.
+        /// Also search among the subfolders of the current file.
         /// </summary>
-        /// <param name="directoryInfo">Dossier dans lequel on va chercher sur chaque fichier.</param>
-        /// <param name="searchedPartialWord">Mot /phrase à trouver.</param>
+        /// <param name="directoryInfo">Folder in which we will search on each file .doc / .docx.</param>
+        /// <param name="searchedPartialWord">Word / phrase to find.</param>
         public static void RecursiveSearchWordInFiles(DirectoryInfo directoryInfo, string searchedPartialWord)
         {
-            // Option de chargement d'un document
+            // Load option of a document.
             LoadOptions loadOptions = new LoadOptions
             {
                 LoadFormat = LoadFormat.Doc
             };
 
-            // Pour les fichiers du dossier.
+            // For the files of the folder.
             foreach (FileInfo fileInfo in directoryInfo.GetFiles())
             {
                 if (fileInfo.Extension == ".doc" || fileInfo.Extension == ".docx")
@@ -167,7 +167,7 @@ namespace SearchInWordFiles
                             Console.WriteLine("Un fichier contenant le mot / la phrase " + searchedPartialWord + " a été trouvé : " + fileInfo.Name + ".");
                             Console.WriteLine("Voulez vous continuer la recherche (Y), ou l'arrêter ? (N)");
 
-                            string response = GestionReadWriteConsole.GetSaisieUtilisateur("Y / N ?", "Veuillez rentrer Y (Yes) / N (No).", new List<string>() { "Y", "N" });
+                            string response = ReadWriteConsoleManagement.GetSaisieUtilisateur("Y / N ?", "Veuillez rentrer Y (Yes) / N (No).", new List<string>() { "Y", "N" });
 
                             if (response == "N")
                             {
@@ -182,7 +182,7 @@ namespace SearchInWordFiles
                 }
             }
 
-            // Pour les sous dossiers du dossier.
+            // For the subfolders.
             foreach (DirectoryInfo di in directoryInfo.GetDirectories())
             {
                 Console.WriteLine("Recherche dans le dossier " + di.FullName);
@@ -192,14 +192,14 @@ namespace SearchInWordFiles
         }
 
         /// <summary>
-        /// Méthode qui permet de choisir quel type de recherche on va utiliser.
+        /// Method that allows to choose what type of research is being used.
         /// </summary>
         public static void SelectFonction()
         {
-            // Emplacement de l'exécutable
+            // Location of the .exe file.
             string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
 
-            // Répertoire de l'exécutable
+            // Folder of the .exe file.
             string directory = System.IO.Path.GetDirectoryName(path);
             DirectoryInfo directoryInfo = new DirectoryInfo(directory);
 
@@ -208,7 +208,7 @@ namespace SearchInWordFiles
             Console.WriteLine("2 : Rechercher une région par correspondance incomplète.");
             Console.WriteLine("3 : Rechercher partout un mot / une phrase.");
 
-            string selectedFunction = GestionReadWriteConsole.GetSaisieUtilisateur(
+            string selectedFunction = ReadWriteConsoleManagement.GetSaisieUtilisateur(
                 startMessage: "Choisissez le type de recherche :",
                 errorMessage: "Cette recherche n'existe pas.",
                 acceptedValues: new List<string>() { "1", "2", "3" });
@@ -218,26 +218,26 @@ namespace SearchInWordFiles
             switch (selectedFunction)
             {
                 case "1":
-                    string regionComplete = GestionReadWriteConsole.GetSaisieUtilisateur("Rentrez la région complète (en respectant la case) à chercher parmi les documents word du dossier :", "Veuillez rentrer la région (en respectant la case).");
+                    string regionComplete = ReadWriteConsoleManagement.GetSaisieUtilisateur("Rentrez la région complète (en respectant la case) à chercher parmi les documents word du dossier :", "Veuillez rentrer la région (en respectant la case).");
                     Program.RecursiveSearchRegionInWordFiles(directoryInfo, regionComplete);
                     break;
 
                 case "2":
-                    string regionPartielle = GestionReadWriteConsole.GetSaisieUtilisateur("Rentrez un mot appartenant à la région à chercher parmi les documents word du dossier :", "Veuillez rentrer un mot appartenant à la région.");
+                    string regionPartielle = ReadWriteConsoleManagement.GetSaisieUtilisateur("Rentrez un mot appartenant à la région à chercher parmi les documents word du dossier :", "Veuillez rentrer un mot appartenant à la région.");
                     Program.RecursiveSearchRegionInWordFilesWithPartialWord(directoryInfo, regionPartielle);
                     break;
 
                 case "3":
-                    string motPhrase = GestionReadWriteConsole.GetSaisieUtilisateur("Rentrez un mot / une phrase à chercher parmi les documents word du dossier :", "Veuillez rentrer un mot / une phrase.");
+                    string motPhrase = ReadWriteConsoleManagement.GetSaisieUtilisateur("Rentrez un mot / une phrase à chercher parmi les documents word du dossier :", "Veuillez rentrer un mot / une phrase.");
                     Program.RecursiveSearchWordInFiles(directoryInfo, motPhrase);
                     break;
             }
         }
 
         /// <summary>
-        /// Méthode principale, lancée en première.
+        /// Main method, launched first.
         /// </summary>
-        /// <param name="args">Arguments du programme.</param>
+        /// <param name="args">Arguments of the program (not used. Yet ?).</param>
         private static void Main(string[] args)
         {
             try
@@ -249,7 +249,7 @@ namespace SearchInWordFiles
             }
             catch (Exception ex)
             {
-                Console.WriteLine(GererExceptions.ConcatException(ex));
+                Console.WriteLine(ExceptionsHandler.ConcatException(ex));
                 Console.ReadLine();
             }
         }
