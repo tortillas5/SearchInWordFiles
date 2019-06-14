@@ -1,0 +1,6 @@
+
+.vs
+obj
+packages
+*.Cache
+bin

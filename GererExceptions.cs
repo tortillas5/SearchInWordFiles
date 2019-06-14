@@ -1,5 +1,5 @@
-﻿// <copyright file="GererExceptions.cs" company="GFI-GEOSPHERE">
-// Copyright (c) 2018 All Rights Reserved
+﻿// <copyright file="GererExceptions.cs" company="Tortillas-Inc">
+// Copy me, no rights reserved.
 // </copyright>
 
 namespace SearchInWordFiles

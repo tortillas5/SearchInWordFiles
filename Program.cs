@@ -1,5 +1,5 @@
-﻿// <copyright file="Program.cs" company="GFI-GEOSPHERE">
-// Copyright (c) 2018 All Rights Reserved
+﻿// <copyright file="Program.cs" company="Tortillas-Inc">
+// Copy me, no rights reserved.
 // </copyright>
 
 namespace SearchInWordFiles
